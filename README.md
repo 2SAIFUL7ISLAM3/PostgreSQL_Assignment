@@ -28,7 +28,11 @@ The `WHERE` clause in a SELECT statement is used to filter records that meet spe
 ## 7. How can you perform data modification using UPDATE statements?
 The `UPDATE` statement in PostgreSQL is used to modify existing records in a table. It allows users to specify which rows to update based on conditions in the `WHERE` clause. For example:
 
-
+```sql
+UPDATE table_name
+SET column1 = value1, column2 = value2
+WHERE condition;
+```
 
 ## 8. Explain the GROUP BY Clause and Its Role in Aggregation Operations?
 
@@ -37,7 +41,11 @@ The `GROUP BY` clause in PostgreSQL is used to group rows that have the same val
 ### Example
 Consider a table `sales` with the following columns: `product_id`, `quantity`, and `sale_date`. If you want to know the total quantity sold for each product, you would use:
 
-
+```sql
+SELECT product_id, SUM(quantity) AS total_quantity
+FROM sales
+GROUP BY product_id;
+```
 
 ## 9. How Can You Calculate Aggregate Functions Like COUNT, SUM, and AVG in PostgreSQL?
 
@@ -47,7 +55,11 @@ Aggregate functions in PostgreSQL perform calculations on multiple rows of a sin
 The `COUNT` function returns the number of rows that match a specified criterion. It can count all rows or distinct values in a column.
 
 #### Example
+```sql
+SELECT COUNT(*) FROM orders; -- Counts all rows in the orders table
 
+SELECT COUNT(DISTINCT product_id) FROM sales; -- Counts unique product IDs
+```
 
 ## 10. What is the Purpose of an Index in PostgreSQL?
 
@@ -68,3 +80,4 @@ To create an index on the `email` column of a `users` table, you would use the f
 
 ```sql
 CREATE INDEX idx_users_email ON users(email);
+```
